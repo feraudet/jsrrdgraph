@@ -4154,6 +4154,7 @@ RRDGraph.prototype = {
 		var vnames = args[n++].split('=');
 		var vname = vnames[0];
 		var rrdfile = vnames[1];
+		if (rrdfile === 'http') rrdfile = rrdfile+':'+args[n++];
 		var name = args[n++];
 		var cf = args[n++];
 		var step = undefined;
