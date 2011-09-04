@@ -5,7 +5,7 @@
  *                         Igor Sfiligoi, isfiligoi@ucsd.edu
  *
  * Original repository: http://javascriptrrd.sourceforge.net/
- * 
+ *
  * MIT License [http://www.opensource.org/licenses/mit-license.php]
  *
  */
@@ -17,10 +17,10 @@
  *
  * This software can be used to read files produced by the RRDTool
  * but has been developed independently.
- * 
+ *
  * Limitations:
  *
- * This version of the module assumes RRD files created on linux 
+ * This version of the module assumes RRD files created on linux
  * with intel architecture and supports both 32 and 64 bit CPUs.
  * All integers in RRD files are suppoes to fit in 32bit values.
  *
@@ -33,7 +33,7 @@
 
 /*
  * Dependencies:
- *   
+ *
  * The data provided to this module require an object of a class
  * that implements the following methods:
  *   getByteAt(idx)            - Return a 8 bit unsigned integer at offset idx
@@ -158,7 +158,7 @@ function RRDRRA(rrd_data,rra_ptr_idx,
       }
     } else {
       throw RangeError("Row idx ("+ row_idx +") out of range [0-" + this.row_cnt +").");
-    }	
+    }
   }
 }
 
@@ -279,7 +279,7 @@ RRDHeader.prototype.calc_idxs = function() {
   } else {
     this.rra_ptr_el_size=8;
   }
-  
+
   this.header_size=this.rra_ptr_idx+this.rra_ptr_el_size*this.rra_cnt;
 }
 
@@ -325,7 +325,7 @@ RRDHeader.prototype.getDSbyIdx = function(idx) {
     return new RRDDS(this.rrd_data,this.ds_def_idx+this.ds_el_size*idx,idx);
   } else {
     throw RangeError("DS idx ("+ idx +") out of range [0-" + this.ds_cnt +").");
-  }	
+  }
 }
 RRDHeader.prototype.getDSbyName = function(name) {
   for (var idx=0; idx<this.ds_cnt; idx++) {
@@ -348,13 +348,13 @@ RRDHeader.prototype.getRRAInfo = function(idx) {
 			  idx);
   } else {
     throw RangeError("RRA idx ("+ idx +") out of range [0-" + this.rra_cnt +").");
-  }	
+  }
 }
 
 // ============================================================
 // RRDFile class
 //   Given a BinaryFile, gives access to the RRD archive fields
-// 
+//
 // Arguments:
 //   bf must be an object compatible with the BinaryFile interface
 function RRDFile(bf) {
